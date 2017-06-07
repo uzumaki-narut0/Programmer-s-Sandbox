@@ -11,7 +11,7 @@ RUN apt-get update
 
 RUN apt-get install python-pip
 # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -r -y requirements.txt
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
