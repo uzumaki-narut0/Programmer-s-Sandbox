@@ -4,10 +4,10 @@ FROM ubuntu:16.04
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get update
 
-RUN apt-get install -y gcc
-RUN apt-get install -y python
-RUN apt-get install -y ruby
-RUN apt-get install -y php5-cli
+#RUN apt-get install -y gcc
+#RUN apt-get install -y python
+#RUN apt-get install -y ruby
+#RUN apt-get install -y php5-cli
 
 RUN apt-get install python-pip
 # Install any needed packages specified in requirements.txt
