@@ -8,9 +8,11 @@ RUN apt-get install -y gcc
 RUN apt-get install -y python
 RUN apt-get install -y ruby
 RUN apt-get install -y php5-cli
+RUN apt-get install -y npm
+RUN apt-get install -y nodejs
 
 # Install any needed packages specified in requirements.txt
-RUN pip install -r -y requirements.txt
+#RUN pip install -r -y requirements.txt
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
@@ -22,4 +24,4 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 ADD . /app
 
-CMD ["python", "server.py"]
+#CMD ["python", "server.py"]
