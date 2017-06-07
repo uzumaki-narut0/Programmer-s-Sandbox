@@ -8,7 +8,6 @@ RUN apt-get install -y gcc
 RUN apt-get install -y python
 RUN apt-get install -y ruby
 RUN apt-get install -y php5-cli
-RUN apt-get install -y npm
 RUN apt-get install -y nodejs
 
 # Install any needed packages specified in requirements.txt
