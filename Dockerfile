@@ -14,7 +14,7 @@ RUN apt-get install -y nodejs-legacy
 #RUN pip install -r -y requirements.txt
 
 # Make port 8080 available to the world outside this container
-EXPOSE 8080
+EXPOSE 80
 
 
 # Set the working directory to /app
