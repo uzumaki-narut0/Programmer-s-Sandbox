@@ -1,5 +1,6 @@
 var http = require('http');
 
+console.log('here');
 //create a server object:
 var portnumber = process.env.PORT || 8080;
 http.createServer(function (req, res) {
