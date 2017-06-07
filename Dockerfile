@@ -9,6 +9,7 @@ RUN apt-get install -y python
 RUN apt-get install -y ruby
 RUN apt-get install -y php5-cli
 
+RUN sudo easy_install pip
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
