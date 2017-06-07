@@ -23,4 +23,4 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 ADD . /app
 
-#CMD ["python", "server.py"]
+CMD ["node", "server.js"]
