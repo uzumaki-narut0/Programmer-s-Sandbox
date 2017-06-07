@@ -16,7 +16,6 @@ RUN apt-get install -y nodejs-legacy
 # Make port 8080 available to the world outside this container
 EXPOSE 80
 
-
 # Set the working directory to /app
 WORKDIR /app
 

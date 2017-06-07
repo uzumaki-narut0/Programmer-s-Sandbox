@@ -1,5 +1,5 @@
 import docker
 client = docker.from_env()
 print('in here! fellas!!')
-container = client.containers.run("sandbox", "echo helloworld")
-print(container.logs())
+client.containers.run("sandbox")
+#print(container.logs())

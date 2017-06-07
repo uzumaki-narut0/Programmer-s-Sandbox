@@ -1,0 +1,15 @@
+{
+  "name": "Programmer's Sandbox",
+  "version": "1.0.0",
+  "description": "docker based sandbox",
+  "engines": {
+    "node": "6.9.4"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dockerode": "^2.4.3"
+  }
+}
