@@ -15,7 +15,7 @@ stdout = {}
 class TodoSimple(Resource):
     def get(self):
     	container = client.containers.run("sandbox","python progpy.py",detach=True)
-        return {stdout: "hello world"}
+        return {"stdout": "hello world"}
 
     # def put(self, todo_id):
     #     todos[todo_id] = request.form['data']
