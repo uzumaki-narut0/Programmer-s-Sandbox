@@ -14,9 +14,9 @@ api = Api(app)
 
 class TodoSimple(Resource):
     def get(self):
-    	container = client.containers.run("sandbox","python progpy.py")
+    	stdout = client.containers.run("sandbox","python progpy.py")
     	#docker.wait(contid)
-    	stdout = container.logs()
+    	#stdout = container
     	print(stdout)
         return {"stdout": stdout}
 
