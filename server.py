@@ -16,7 +16,7 @@ api = Api(app)
 class TodoSimple(Resource):
     def get(self, code):
     	print(code)
-    	with open('output.py', 'w') as f:
+    	with open('output.txt', 'w') as f:
     		f.write(code)
     	#making file executable 
     	print(os.getcwd())
