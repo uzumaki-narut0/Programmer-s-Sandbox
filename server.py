@@ -25,6 +25,7 @@ class TodoSimple(Resource):
         with open('progpy.py', 'w') as f:
     		f.write(code)			##we have to wrap this code in the container.... :(
     	#subprocess.call(['docker','cp','progpy.py','sandbox:/progpy.py'])
+    	'''
     	#making file executable 
     	'''
     	client.images.build(path='.',tag='sandbox')
