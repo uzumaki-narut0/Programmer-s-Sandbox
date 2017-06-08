@@ -16,13 +16,13 @@ api = Api(app)
 class TodoSimple(Resource):
     def get(self, code):
     	print(code)
-    	with open('output.txt', 'w') as f:
+    	with open('output.py', 'w') as f:
     		f.write('hello world')
     	#making file executable 
     	print(os.getcwd())
     	st = os.stat('output.py')
     	os.chmod('output.py', st.st_mode | stat.S_IEXEC)
-    	stdout = client.containers.run("sandbox",["python","output.py"])
+    	stdout = client.containers.run("sandbox",["python","progpy.py"])
     	print(stdout)
         return {"stdout": stdout}
 
