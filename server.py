@@ -27,9 +27,7 @@ class TodoSimple(Resource):
     	#subprocess.call(['docker','cp','progpy.py','sandbox:/progpy.py'])
     	'''
     	#making file executable 
-    	'''
     	client.images.build(path='.',tag='sandbox')
-    	'''
     	print(os.getcwd())
     	st = os.stat('output.py')
     	os.chmod('output.py', st.st_mode | stat.S_IEXEC)
