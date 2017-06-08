@@ -13,8 +13,10 @@ api = Api(app)
 
 
 class TodoSimple(Resource):
-    def get(self):
-    	stdout = client.containers.run("sandbox","python progpy.py")
+    def get(self, code):
+    	with open('output.py', 'w') as f:
+    		f.write(code)
+    	stdout = client.containers.run("sandbox","python output.py")
     	#docker.wait(contid)
     	#stdout = container
     	print(stdout)
@@ -24,7 +26,7 @@ class TodoSimple(Resource):
     #     todos[todo_id] = request.form['data']
     #     return {todo_id: todos[todo_id]}
 
-api.add_resource(TodoSimple, '/')
+api.add_resource(TodoSimple, '/<string:code>')
 
 port = int(os.environ.get("PORT", 82))
 app.run(host='localhost', port=port)
