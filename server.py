@@ -17,8 +17,9 @@ class TodoSimple(Resource):
     def get(self, code):
     	print(code)
     	with open('progpy.py', 'w') as f:
-    		f.write('hello world')
+    		f.write('hello new world')
     	#making file executable 
+    	client.images.build(path='.',tag='sandbox')
     	print(os.getcwd())
     	st = os.stat('output.py')
     	os.chmod('output.py', st.st_mode | stat.S_IEXEC)
