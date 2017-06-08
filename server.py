@@ -14,10 +14,11 @@ api = Api(app)
 
 class TodoSimple(Resource):
     def get(self):
-    	client.containers.run("sandbox","python progpy.py")
-    	#stdout = container.logs()
-    	#print(stdout)
-        return {"stdout": "stdout"}
+    	container = client.containers.run("sandbox","python progpy.py")
+    	#docker.wait(contid)
+    	stdout = container.logs()
+    	print(stdout)
+        return {"stdout": stdout}
 
     # def put(self, todo_id):
     #     todos[todo_id] = request.form['data']
