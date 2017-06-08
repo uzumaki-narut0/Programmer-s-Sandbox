@@ -3,6 +3,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse, abort
 import os
 import stat
+import subprocess
 
 client = docker.from_env()
 print('in here! fellas!!')
@@ -10,23 +11,7 @@ print('in here! fellas!!')
 app = Flask(__name__)
 api = Api(app)
 
-#stdout = {}
-
-
 class TodoSimple(Resource):
-    def get(self, code):
-    	print(code)
-    	with open('progpy.py', 'w') as f:
-    		f.write('hello new world')
-    	#making file executable 
-    	client.images.build(path='.',tag='sandbox')
-    	print(os.getcwd())
-    	st = os.stat('output.py')
-    	os.chmod('output.py', st.st_mode | stat.S_IEXEC)
-    	stdout = client.containers.run("sandbox",["python","progpy.py"])
-    	print(stdout)
-        return {"stdout": stdout}
-
     def post(self):
     	parser = reqparse.RequestParser()
         parser.add_argument('langid');
@@ -38,8 +23,11 @@ class TodoSimple(Resource):
         #lng = args['lng']
         with open('progpy.py', 'w') as f:
     		f.write(code)
+    	subprocess.call(['docker','cp','progpy.py','sandbox:/progpy.py'])
     	#making file executable 
+    	'''
     	client.images.build(path='.',tag='sandbox')
+    	'''
     	print(os.getcwd())
     	st = os.stat('output.py')
     	os.chmod('output.py', st.st_mode | stat.S_IEXEC)
