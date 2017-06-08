@@ -1,3 +1,4 @@
+#!/usr/bin/env nodejs
 var http = require('http');
 var Docker = require('dockerode');
 var docker = new Docker();
