@@ -22,8 +22,8 @@ class TodoSimple(Resource):
         code = args['code']
         #lng = args['lng']
         with open('progpy.py', 'w') as f:
-    		f.write(code)
-    	subprocess.call(['docker','cp','progpy.py','sandbox:/progpy.py'])
+    		f.write(code)			##we have to wrap this code in the container.... :(
+    	#subprocess.call(['docker','cp','progpy.py','sandbox:/progpy.py'])
     	#making file executable 
     	'''
     	client.images.build(path='.',tag='sandbox')
@@ -31,6 +31,10 @@ class TodoSimple(Resource):
     	print(os.getcwd())
     	st = os.stat('output.py')
     	os.chmod('output.py', st.st_mode | stat.S_IEXEC)
+    	'''
+    	container_id = client.containers.create("sandbox")
+    	Container.start(container_id)
+    	'''
     	stdout = client.containers.run("sandbox",["python","progpy.py"])
     	print(stdout)
         return {"stdout": stdout}  
