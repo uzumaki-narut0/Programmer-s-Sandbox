@@ -20,7 +20,7 @@ class TodoSimple(Resource):
     		f.write(code)
     	#making file executable 
     	st = os.stat(f)
-		os.chmod(f, st.st_mode | stat.S_IEXEC)
+    	os.chmod(f, st.st_mode | stat.S_IEXEC)
     	stdout = client.containers.run("sandbox",["python",f])
     	print(stdout)
         return {"stdout": stdout}
