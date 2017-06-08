@@ -23,5 +23,5 @@ class TodoSimple(Resource):
 
 api.add_resource(TodoSimple, '/')
 
-port = int(os.environ.get("PORT", 80))
-app.run(host='0.0.0.0', port=port)
+port = int(os.environ.get("PORT", 82))
+app.run(host='localhost', port=port)
