@@ -2,6 +2,7 @@ import docker
 from flask import Flask, request
 from flask_restful import Resource, Api
 import os
+import stat
 
 client = docker.from_env()
 print('in here! fellas!!')
@@ -14,17 +15,15 @@ api = Api(app)
 
 class TodoSimple(Resource):
     def get(self, code):
+    	print(code)
     	with open('output.py', 'w') as f:
     		f.write(code)
-    	stdout = client.containers.run("sandbox","python output.py")
-    	#docker.wait(contid)
-    	#stdout = container
+    	#making file executable 
+    	st = os.stat(f)
+		os.chmod(f, st.st_mode | stat.S_IEXEC)
+    	stdout = client.containers.run("sandbox",["python",f])
     	print(stdout)
         return {"stdout": stdout}
-
-    # def put(self, todo_id):
-    #     todos[todo_id] = request.form['data']
-    #     return {todo_id: todos[todo_id]}
 
 api.add_resource(TodoSimple, '/<string:code>')
 
