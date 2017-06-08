@@ -17,7 +17,7 @@ class TodoSimple(Resource):
     def get(self, code):
     	print(code)
     	with open('output.txt', 'w') as f:
-    		f.write(code)
+    		f.write('hello world')
     	#making file executable 
     	print(os.getcwd())
     	st = os.stat('output.py')
