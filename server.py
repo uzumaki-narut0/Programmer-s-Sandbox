@@ -9,13 +9,14 @@ print('in here! fellas!!')
 app = Flask(__name__)
 api = Api(app)
 
-stdout = {}
+#stdout = {}
 
 
 class TodoSimple(Resource):
     def get(self):
     	container = client.containers.run("sandbox","python progpy.py",detach=True)
-        return {"stdout": container.logs()}
+    	stdout = container.logs()
+        return {"stdout": stdout}
 
     # def put(self, todo_id):
     #     todos[todo_id] = request.form['data']
